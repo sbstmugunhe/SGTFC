@@ -25,6 +25,24 @@ use Cake\Event\Event;
  *
  * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
+
+use Cake\Database\Type;
+// Habilita o parseamento de datas localizadas
+Type::build('date')
+ ->useLocaleParser()
+ ->setLocaleFormat('dd/MM/yyyy');
+Type::build('datetime')
+ ->useLocaleParser()
+ ->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
+Type::build('timestamp')
+ ->useLocaleParser()
+ ->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
+
+// Habilita o parseamento de decimal localizaddos
+Type::build('decimal')
+ ->useLocaleParser();
+Type::build('float')
+ ->useLocaleParser();
 class AppController extends Controller
 {
 
@@ -45,6 +63,30 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+        /*$this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'email' => 'email', 
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'controller'=>'Users',
+                'action'=> 'login'
+            ],
+            'authError'=> 'Dados Inválidos',
+            'loginRedirect'=>[
+                'controller'=>'Users',
+                'action'=> 'home'
+            ],
+            'logoutRedirect'=>[
+                'controller'=>'Users',
+                'action'=> 'login'
+            ]
+        ]);*/
 
         /*
          * Enable the following component for recommended CakePHP security settings.
@@ -61,4 +103,9 @@ class AppController extends Controller
         // For CakePHP before 3.5
         //$this->viewBuilder()->theme('AdminLTE');
     }
+
+    /*public function isAuthorized($user)
+    {
+        return true;
+    }*/
 }

@@ -4,15 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * User Entity
+ * Occupation Entity
  *
  * @property int $id
- * @property string $email
- * @property string $password
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
+ * @property string $name
+ * @property string $comentario
+ *
+ * @property \App\Model\Entity\Estudante[] $estudantes
  */
-class User extends Entity
+class Occupation extends Entity
 {
 
     /**
@@ -25,18 +25,8 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'email' => true,
-        'password' => true,
-        'created' => true,
-        'modified' => true
-    ];
-
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
+        'name' => true,
+        'comentario' => true,
+        'estudantes' => true
     ];
 }

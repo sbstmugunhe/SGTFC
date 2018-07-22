@@ -53,6 +53,14 @@ custom styles.
 ## Bake com adminLTE
 cake bake all users --theme AdminLTE --prefix admin
 
+use Cake\Auth\DefaultPasswordHasher; 
+{
+    protected function _setPassword($value){
+        $hasher= new DefaultPasswordHasher();
+        return $hasher->hash($value);
+    }
+
+
 Ver layout do template 
     1. src/Template/Element/nav-top.ctp
     2. src/Template/Element/aside-main-sidebar.ctp

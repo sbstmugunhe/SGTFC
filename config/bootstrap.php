@@ -44,6 +44,8 @@ use Cake\Mailer\Email;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
+ini_set('intl.default_locale', 'pt_BR');
+
 /**
  * Uncomment block of code below if you want to use `.env` file during development.
  * You should copy `config/.env.default to `config/.env` and set/modify the
@@ -218,10 +220,10 @@ if (Configure::read('debug')) {
 
 Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
 Configure::write('Theme', [
-    'title' => 'AdminLTE',
+    'title' => 'DMI | Sistema de Gestão de Monografias.',
     'logo' => [
-        'mini' => '<b>A</b>LT',
-        'large' => '<b>Admin</b>LTE'
+        'mini' => '<b>DMI</b>',
+        'large' => '<b>UEM</b> - DMI'
     ],
     'login' => [
         'show_remember' => true,
@@ -229,5 +231,5 @@ Configure::write('Theme', [
         'show_social' => true
     ],
     'folder' => ROOT,
-    'skin' => 'blue' // default is 'blue'
+    'skin' => 'green-light' // default is 'blue'
 ]);

@@ -20,8 +20,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="<?php echo $this->Url->build('/utilizadores/index'); ?>"><i class="fa fa-circle-o"></i> Todos Utilizadores</a></li>
-            <li><a href="<?php echo $this->Url->build('/utilizadores/add'); ?>"><i class="fa fa-circle-o"></i> Registar Utilizador</a></li>
+            <li><a href="<?php echo $this->Url->build('/users/index'); ?>"><i class="fa fa-circle-o"></i> Todos Utilizadores</a></li>
+            <li><a href="<?php echo $this->Url->build('/users/add'); ?>"><i class="fa fa-circle-o"></i> Registar Utilizador</a></li>
         </ul>
 
     <li class="treeview">
@@ -53,7 +53,7 @@
                 <i class="fa fa-circle-o"></i> 
                 <span>Temas por Avaliar </span>
                     <span class="pull-right-container">
-                        <span class="label label-info pull-right">2</span>
+                        <span class="label label-primary pull-right">2</span>
                     </span>
                 </a>
             </li>
@@ -75,7 +75,7 @@
             </a>
             </li>
 
-            <li><a href="<?php echo $this->Url->build('/temas/add'); ?>"><i class="fa fa-circle-o"></i> Propôr um Tema</a></li>
+            <li><a href="<?php echo $this->Url->build('/propostas/add'); ?>"><i class="fa fa-circle-o"></i> Propôr um Tema</a></li>
         </ul>
     </li>
     <li class="treeview">
@@ -87,16 +87,55 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>"><i class="fa fa-circle-o"></i> Trabalhos por Avaliar</a></li>
-            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>"><i class="fa fa-circle-o"></i> Trabalhos Aprovados</a></li>
-            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>"><i class="fa fa-circle-o"></i> Trabalhos Reprovados</a></li>
-            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>"><i class="fa fa-circle-o"></i> Em Curso</a></li>
-            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>"><i class="fa fa-circle-o"></i> Concluidos</a></li>
+            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>">
+                <i class="fa fa-circle-o"></i> 
+                <span>Trabalhos por Avaliar </span>
+                    <span class="pull-right-container">
+                        <span class="label label-primary pull-right">2</span>
+                    </span>
+                </a>
+            </li>
+            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>">
+                <i class="fa fa-circle-o"></i>
+                <span>Trabalhos Aprovados </span>
+                <span class="pull-right-container">
+                    <span class="label label-info pull-right">2</span>
+                </span>
+                </a>
+            </li>
+
+            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>">
+                <i class="fa fa-circle-o"></i>
+                <span>Trabalhos em Curso </span>
+                <span class="pull-right-container">
+                    <span class="label label-warning pull-right">2</span>
+                </span>
+                </a>
+            </li>
+            
+            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>">
+                <i class="fa fa-circle-o"></i> 
+                <span>Trabalhos Feitos </span>
+                <span class="pull-right-container">
+                    <span class="label label-success pull-right">2</span>
+                </span>
+            </a>
+            </li>
+
+            <li><a href="<?php echo $this->Url->build('/trabalhos/index'); ?>">
+                <i class="fa fa-circle-o"></i>
+                <span>Trabalhos Reprovados </span>
+                <span class="pull-right-container">
+                    <span class="label label-danger pull-right">2</span>
+                </span>
+                </a>
+            </li>
+
         </ul>
     </li>
 
     <li class="treeview">
-        <a href="<?php echo $this->Url->build(' '); ?>">
+        <a href="<?php echo $this->Url->build('/users/logout '); ?>">
             <i class="fa fa-power-off"></i> <span>Terminar Sessão</span>
             <span class="pull-right-container">
             </span>

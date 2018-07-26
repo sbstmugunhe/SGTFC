@@ -49,12 +49,12 @@
             <div class="box">
                 <div class="box-header">
                     <i class="fa fa-share-alt"></i>
-                    <h3 class="box-title"><?= __('{0} Relacionados', ['Temas']) ?></h3>
+                    <h3 class="box-title"><?= __('{0} Relacionados', ['Propostas']) ?></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
 
-                <?php if (!empty($areaspesquisa->temas)): ?>
+                <?php if (!empty($areaspesquisa->propostas)): ?>
 
                     <table class="table table-hover">
                         <tbody>
@@ -66,7 +66,7 @@
                                         
                                                                     
                                     <th>
-                                    Tema
+                                    Name
                                     </th>
                                         
                                                                     
@@ -86,11 +86,6 @@
                                         
                                                                     
                                     <th>
-                                    Situacao
-                                    </th>
-                                        
-                                                                    
-                                    <th>
                                     Parecer
                                     </th>
                                         
@@ -105,47 +100,43 @@
                                 </th>
                             </tr>
 
-                            <?php foreach ($areaspesquisa->temas as $temas): ?>
+                            <?php foreach ($areaspesquisa->propostas as $propostas): ?>
                                 <tr>
                                                                         
                                     <td>
-                                    <?= h($temas->id) ?>
+                                    <?= h($propostas->id) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($temas->tema) ?>
+                                    <?= h($propostas->name) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($temas->areaspesquisa_id) ?>
+                                    <?= h($propostas->areaspesquisa_id) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($temas->descricao) ?>
+                                    <?= h($propostas->descricao) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($temas->estado) ?>
+                                    <?= h($propostas->estado) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($temas->situacao) ?>
-                                    </td>
-                                                                        
-                                    <td>
-                                    <?= h($temas->parecer) ?>
+                                    <?= h($propostas->parecer) ?>
                                     </td>
                                                                                                             
                                     <td>
-                                    <?= h($temas->updated) ?>
+                                    <?= h($propostas->updated) ?>
                                     </td>
                                                                         
                                                                         <td class="actions">
-                                    <?= $this->Html->link(__('Visualizar'), ['controller' => 'Temas', 'action' => 'view', $temas->id], ['class'=>'btn btn-info btn-xs']) ?>
+                                    <?= $this->Html->link(__('Visualizar'), ['controller' => 'Propostas', 'action' => 'view', $propostas->id], ['class'=>'btn btn-info btn-xs']) ?>
 
-                                    <?= $this->Html->link(__('Editar'), ['controller' => 'Temas', 'action' => 'edit', $temas->id], ['class'=>'btn btn-warning btn-xs']) ?>
+                                    <?= $this->Html->link(__('Editar'), ['controller' => 'Propostas', 'action' => 'edit', $propostas->id], ['class'=>'btn btn-warning btn-xs']) ?>
 
-                                    <?= $this->Form->postLink(__('Eliminar'), ['controller' => 'Temas', 'action' => 'delete', $temas->id], ['confirm' => __('Tens a certeza que pretende eliminar # {0}?', $temas->id), 'class'=>'btn btn-danger btn-xs']) ?>    
+                                    <?= $this->Form->postLink(__('Eliminar'), ['controller' => 'Propostas', 'action' => 'delete', $propostas->id], ['confirm' => __('Tens a certeza que pretende eliminar # {0}?', $propostas->id), 'class'=>'btn btn-danger btn-xs']) ?>    
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

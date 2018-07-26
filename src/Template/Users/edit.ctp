@@ -25,10 +25,13 @@
         <?= $this->Form->create($user, array('role' => 'form')) ?>
           <div class="box-body">
           <?php
-            echo $this->Form->input('name');
+            echo $this->Form->input('primeiro_nome');
+            echo $this->Form->input('ultimo_nome');
             echo $this->Form->input('username');
             echo $this->Form->input('email');
-            echo $this->Form->input('group_id', ['options' => $groups]);
+            echo $this->Form->input('grupo_id', ['options' => $grupos]);
+            echo $this->Form->input('passkey');
+            echo $this->Form->input('timeout');
             echo $this->Form->input('password');
           ?>
           </div>

@@ -26,13 +26,11 @@
           <div class="box-body">
           <?php
             echo $this->Form->input('proposta_id', ['options' => $propostas]);
-            echo $this->Form->input('name');
             echo $this->Form->input('estudocaso');
             echo $this->Form->input('geral');
             echo $this->Form->input('especificos');
             echo $this->Form->input('dataentrega');
             echo $this->Form->input('estrutura');
-            echo $this->Form->input('material');
             echo $this->Form->input('obras');
           ?>
           </div>

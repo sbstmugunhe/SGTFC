@@ -5,7 +5,7 @@
   </h1>
   <ol class="breadcrumb">
     <li>
-    <?= $this->Html->link('<i class="fa fa-dashboard"></i> '.__('Voltar'), ['action' => 'index'], ['escape' => false]) ?>
+      <?= $this->Html->link('<i class="fa fa-dashboard"></i> '.__('Voltar'), ['action' => 'index'], ['escape' => false]) ?>
     </li>
   </ol>
 </section>
@@ -23,19 +23,76 @@
         <!-- /.box-header -->
         <!-- form start -->
         <?= $this->Form->create($user, array('role' => 'form')) ?>
-          <div class="box-body">
-          <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('username');
-            echo $this->Form->input('email');
-            echo $this->Form->input('group_id', ['options' => $groups]);
-            echo $this->Form->input('password');
-          ?>
+        <div class="box-body">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Primeiro Nome</label>
+                <?php echo $this->Form->input('primeiro_nome', ['label' => false, 'placeholder' => 'Digite nome']);?>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Apelido</label>
+                <?php echo $this->Form->input('ultimo_nome', ['label' => false, 'placeholder' => 'Digite apelido']);?>
+              </div>
+            </div>
           </div>
-          <!-- /.box-body -->
-          <div class="box-footer">
-            <?= $this->Form->button(__('Salvar')) ?>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Nome de Utilizador</label>
+                <?php echo $this->Form->input('username', ['label' => false, 'placeholder' => 'Digite nome de utilizador']);?>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Categoria</label>
+                <?php echo $this->Form->input('grupo_id', ['label' => false, 'empty' => '- Seleccionar a categoria -']);?>
+              </div>
+            </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>E-meil</label>
+                <?php echo $this->Form->input('email', ['label' => false, 'placeholder' => 'Digite e-mail']);?>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Passkey</label>
+                <?php echo $this->Form->input('passkey', ['label' => false, 'placeholder' => 'Digite senha token']);?>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Senha</label>
+                <?php echo $this->Form->input('password', ['label' => false, 'placeholder' => 'Digite a senha']);?>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Confirmar Senha</label>
+                <?php echo $this->Form->input('confirm_password', ['type' => 'password', 'label' => false, 'placeholder' => 'Confirmar a senha']);?>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="box-footer">
+          <?= $this->Form->button(__('Salvar')) ?>
+        </div>
         <?= $this->Form->end() ?>
       </div>
     </div>

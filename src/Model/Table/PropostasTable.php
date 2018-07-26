@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * Propostas Model
  *
  * @property \App\Model\Table\AreaspesquisasTable|\Cake\ORM\Association\BelongsTo $Areaspesquisas
- * @property |\Cake\ORM\Association\HasMany $Trabalhos
+ * @property \App\Model\Table\TrabalhosTable|\Cake\ORM\Association\HasMany $Trabalhos
  *
  * @method \App\Model\Entity\Proposta get($primaryKey, $options = [])
  * @method \App\Model\Entity\Proposta newEntity($data = null, array $options = [])
@@ -60,30 +60,26 @@ class PropostasTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->maxLength('name', 255)
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->scalar('descricao')
-            ->allowEmpty('descricao');
+        ->scalar('descricao')
+        ->allowEmpty('descricao');
 
         $validator
-            ->boolean('estado')
-            ->allowEmpty('estado');
+        ->scalar('estado')
+        ->allowEmpty('estado');
 
         $validator
-            ->boolean('situacao')
-            ->allowEmpty('situacao');
-
-        $validator
-            ->scalar('parecer')
-            ->allowEmpty('parecer');
+        ->scalar('parecer')
+        ->allowEmpty('parecer');
 
         return $validator;
     }
@@ -101,4 +97,10 @@ class PropostasTable extends Table
 
         return $rules;
     }
+
+    public function isOwnedBy($propostaId, $userId)
+    {
+        return $this->exists(['id' => $propostaId, 'user_id' => $userId]);
+    }
+
 }

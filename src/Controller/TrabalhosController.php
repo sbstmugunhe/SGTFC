@@ -38,7 +38,7 @@ class TrabalhosController extends AppController
     public function view($id = null)
     {
         $trabalho = $this->Trabalhos->get($id, [
-            'contain' => ['Propostas']
+            'contain' => ['Propostas', 'Actividades']
         ]);
 
         $this->set('trabalho', $trabalho);
@@ -61,7 +61,7 @@ class TrabalhosController extends AppController
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Trabalho'));
             }
         }
-        $propostas = $this->Trabalhos->Propostas->find('list', ['limit' => 2]);
+        $propostas = $this->Trabalhos->Propostas->find('list', ['limit' => 200]);
         $this->set(compact('trabalho', 'propostas'));
         $this->set('_serialize', ['trabalho']);
     }

@@ -13,17 +13,29 @@ use App\Controller\AppController;
 class PropostasController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
+    public function isAuthorized($user)
+    {
+    // Todos os utilizadores registrados podem adicionar artigos
+        if ($this->request->getParam('action') === 'add') {
+            return true;
+        }
 
-    //Lista de propostas
+    // Apenas o proprietário da proposta pode editar e excluí
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $propostaId = (int)$this->request->getParam('pass.0');
+            if ($this->Propostas->isOwnedBy($propostaId, $user['id'])) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+
     public function index()
     {
         $this->paginate = [
-            'conditions'=>['estado'=> 0],
+            'conditions'=>['estado'=> 'pendente'],
             'contain' => ['Areaspesquisas']
         ];
         $propostas = $this->paginate($this->Propostas);
@@ -31,12 +43,11 @@ class PropostasController extends AppController
         $this->set(compact('propostas'));
     }
 
-
-    //Lista de temas aprovados pela Comissao Cientifica
+//Lista de temas aprovados
     public function aprovados()
     {
         $this->paginate = [
-            'conditions'=>['estado'=> 1],
+            'conditions'=>['estado'=> 'aprovado'],
             'contain' => ['Areaspesquisas']
         ];
         $propostas = $this->paginate($this->Propostas);
@@ -44,11 +55,11 @@ class PropostasController extends AppController
         $this->set(compact('propostas'));
     }
 
-    //Lista de temas reprovados pela Comissao Cientifica
+//Lista de Temas reprovados
     public function reprovados()
     {
         $this->paginate = [
-            'conditions'=>['estado'=> 0],
+            'conditions'=>['estado'=> 'reprovado'],
             'contain' => ['Areaspesquisas']
         ];
         $propostas = $this->paginate($this->Propostas);
@@ -66,7 +77,18 @@ class PropostasController extends AppController
     public function view($id = null)
     {
         $proposta = $this->Propostas->get($id, [
-            'contain' => ['Areaspesquisas']
+            'contain' => ['Areaspesquisas', 'Trabalhos']
+        ]);
+
+        $this->set('proposta', $proposta);
+    }
+
+
+    public function submeter($id = null)
+    {
+        //$trabalho = $this->Propostas->Trabalhos->newEntity();
+        $proposta = $this->Propostas->get($id, [
+            'contain' => ['Areaspesquisas', 'Trabalhos']
         ]);
 
         $this->set('proposta', $proposta);
@@ -115,6 +137,29 @@ class PropostasController extends AppController
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Proposta'));
             }
         }
+        $areaspesquisas = $this->Propostas->Areaspesquisas->find('list', ['limit' => 200]);
+        $this->set(compact('proposta', 'areaspesquisas'));
+        $this->set('_serialize', ['proposta']);
+    }
+
+
+    public function avaliar($id = null)
+    {
+        $proposta = $this->Propostas->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $proposta = $this->Propostas->patchEntity($proposta, $this->request->data);
+            if ($this->Propostas->save($proposta)) {
+                $this->Flash->success(__('O {0} salvo com sucesso.', 'Proposta'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Proposta'));
+            }
+        }
+        $proposta = $this->Propostas->get($id, [
+            'contain' => ['Areaspesquisas', 'Trabalhos']
+        ]);
         $areaspesquisas = $this->Propostas->Areaspesquisas->find('list', ['limit' => 200]);
         $this->set(compact('proposta', 'areaspesquisas'));
         $this->set('_serialize', ['proposta']);

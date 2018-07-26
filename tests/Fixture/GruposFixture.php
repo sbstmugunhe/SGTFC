@@ -45,9 +45,9 @@ class GruposFixture extends TestFixture
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'comentarios' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created' => '2018-07-21 11:29:08',
-                'modified' => '2018-07-21 11:29:08',
-                'updated' => '2018-07-21 11:29:08'
+                'created' => '2018-07-25 12:46:47',
+                'modified' => '2018-07-25 12:46:47',
+                'updated' => '2018-07-25 12:46:47'
             ],
         ];
         parent::init();

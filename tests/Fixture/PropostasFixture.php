@@ -21,8 +21,7 @@ class PropostasFixture extends TestFixture
         'name' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'latin1_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'areaspesquisa_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'descricao' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'latin1_general_ci', 'comment' => '', 'precision' => null],
-        'estado' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'situacao' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'estado' => ['type' => 'string', 'length' => null, 'null' => true, 'default' => 'pendente', 'collate' => 'latin1_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'parecer' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'latin1_general_ci', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'updated' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
@@ -50,12 +49,11 @@ class PropostasFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'areaspesquisa_id' => 1,
                 'descricao' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'estado' => 1,
-                'situacao' => 1,
+                'estado' => 'Lorem ipsum dolor sit amet',
                 'parecer' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created' => '2018-07-21 11:33:48',
-                'updated' => '2018-07-21 11:33:48',
-                'modified' => '2018-07-21 11:33:48'
+                'created' => '2018-07-23 08:06:30',
+                'updated' => '2018-07-23 08:06:30',
+                'modified' => '2018-07-23 08:06:30'
             ],
         ];
         parent::init();

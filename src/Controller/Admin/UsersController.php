@@ -20,6 +20,9 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Grupos']
+        ];
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -35,7 +38,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => []
+            'contain' => ['Grupos']
         ]);
 
         $this->set('user', $user);
@@ -52,13 +55,14 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The {0} has been saved.', 'User'));
+                $this->Flash->success(__('O {0} salvo com sucesso.', 'User'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'User'));
+                $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'User'));
             }
         }
-        $this->set(compact('user'));
+        $grupos = $this->Users->Grupos->find('list', ['limit' => 200]);
+        $this->set(compact('user', 'grupos'));
         $this->set('_serialize', ['user']);
     }
 
@@ -77,13 +81,14 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The {0} has been saved.', 'User'));
+                $this->Flash->success(__('O {0} salvo com sucesso.', 'User'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'User'));
+                $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'User'));
             }
         }
-        $this->set(compact('user'));
+        $grupos = $this->Users->Grupos->find('list', ['limit' => 200]);
+        $this->set(compact('user', 'grupos'));
         $this->set('_serialize', ['user']);
     }
 
@@ -99,9 +104,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The {0} has been deleted.', 'User'));
+            $this->Flash->success(__('O {0} foi eleiminado sucesso.', 'User'));
         } else {
-            $this->Flash->error(__('The {0} could not be deleted. Please, try again.', 'User'));
+            $this->Flash->error(__('O {0} não foi eliminado. Tente novamente.', 'User'));
         }
         return $this->redirect(['action' => 'index']);
     }

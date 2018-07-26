@@ -64,10 +64,15 @@ class UtilizadoresTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 225)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->scalar('primeiro_nome')
+            ->maxLength('primeiro_nome', 225)
+            ->requirePresence('primeiro_nome', 'create')
+            ->notEmpty('primeiro_nome');
+
+        $validator
+            ->scalar('ultimo_nome')
+            ->maxLength('ultimo_nome', 255)
+            ->allowEmpty('ultimo_nome');
 
         $validator
             ->scalar('username')
@@ -79,6 +84,16 @@ class UtilizadoresTable extends Table
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmpty('email');
+
+        $validator
+            ->scalar('passkey')
+            ->maxLength('passkey', 13)
+            ->requirePresence('passkey', 'create')
+            ->notEmpty('passkey');
+
+        $validator
+            ->dateTime('timeout')
+            ->allowEmpty('timeout');
 
         $validator
             ->scalar('password')

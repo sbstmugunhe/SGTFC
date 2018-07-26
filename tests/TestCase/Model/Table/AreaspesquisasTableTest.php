@@ -25,7 +25,7 @@ class AreaspesquisasTableTest extends TestCase
      */
     public $fixtures = [
         'app.areaspesquisas',
-        'app.temas'
+        'app.propostas'
     ];
 
     /**

@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  * @property \Cake\I18n\FrozenTime $updated
  *
- * @property \App\Model\Entity\Utilizadore[] $utilizadores
+ * @property \App\Model\Entity\User[] $users
  */
 class Grupo extends Entity
 {
@@ -33,6 +33,6 @@ class Grupo extends Entity
         'created' => true,
         'modified' => true,
         'updated' => true,
-        'utilizadores' => true
+        'users' => true
     ];
 }

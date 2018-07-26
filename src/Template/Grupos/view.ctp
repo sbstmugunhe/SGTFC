@@ -49,12 +49,12 @@
             <div class="box">
                 <div class="box-header">
                     <i class="fa fa-share-alt"></i>
-                    <h3 class="box-title"><?= __('{0} Relacionados', ['Utilizadores']) ?></h3>
+                    <h3 class="box-title"><?= __('{0} Relacionados', ['Users']) ?></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
 
-                <?php if (!empty($grupo->utilizadores)): ?>
+                <?php if (!empty($grupo->users)): ?>
 
                     <table class="table table-hover">
                         <tbody>
@@ -66,7 +66,12 @@
                                         
                                                                     
                                     <th>
-                                    Name
+                                    Primeiro Nome
+                                    </th>
+                                        
+                                                                    
+                                    <th>
+                                    Ultimo Nome
                                     </th>
                                         
                                                                     
@@ -86,57 +91,70 @@
                                         
                                                                     
                                     <th>
+                                    Passkey
+                                    </th>
+                                        
+                                                                    
+                                    <th>
+                                    Timeout
+                                    </th>
+                                        
+                                                                    
+                                    <th>
                                     Password
                                     </th>
                                         
-                                                                                                        
-                                    <th>
-                                    Updated
-                                    </th>
-                                        
-                                                                                                        
+                                                                                                                                            
                                 <th>
                                     <?php echo __('Acções'); ?>
                                 </th>
                             </tr>
 
-                            <?php foreach ($grupo->utilizadores as $utilizadores): ?>
+                            <?php foreach ($grupo->users as $users): ?>
                                 <tr>
                                                                         
                                     <td>
-                                    <?= h($utilizadores->id) ?>
+                                    <?= h($users->id) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($utilizadores->name) ?>
+                                    <?= h($users->primeiro_nome) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($utilizadores->username) ?>
+                                    <?= h($users->ultimo_nome) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($utilizadores->email) ?>
+                                    <?= h($users->username) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($utilizadores->grupo_id) ?>
+                                    <?= h($users->email) ?>
                                     </td>
                                                                         
                                     <td>
-                                    <?= h($utilizadores->password) ?>
+                                    <?= h($users->grupo_id) ?>
+                                    </td>
+                                                                        
+                                    <td>
+                                    <?= h($users->passkey) ?>
+                                    </td>
+                                                                        
+                                    <td>
+                                    <?= h($users->timeout) ?>
+                                    </td>
+                                                                        
+                                    <td>
+                                    <?= h($users->password) ?>
                                     </td>
                                                                                                             
-                                    <td>
-                                    <?= h($utilizadores->updated) ?>
-                                    </td>
-                                                                        
                                                                         <td class="actions">
-                                    <?= $this->Html->link(__('Visualizar'), ['controller' => 'Utilizadores', 'action' => 'view', $utilizadores->id], ['class'=>'btn btn-info btn-xs']) ?>
+                                    <?= $this->Html->link(__('Visualizar'), ['controller' => 'Users', 'action' => 'view', $users->id], ['class'=>'btn btn-info btn-xs']) ?>
 
-                                    <?= $this->Html->link(__('Editar'), ['controller' => 'Utilizadores', 'action' => 'edit', $utilizadores->id], ['class'=>'btn btn-warning btn-xs']) ?>
+                                    <?= $this->Html->link(__('Editar'), ['controller' => 'Users', 'action' => 'edit', $users->id], ['class'=>'btn btn-warning btn-xs']) ?>
 
-                                    <?= $this->Form->postLink(__('Eliminar'), ['controller' => 'Utilizadores', 'action' => 'delete', $utilizadores->id], ['confirm' => __('Tens a certeza que pretende eliminar # {0}?', $utilizadores->id), 'class'=>'btn btn-danger btn-xs']) ?>    
+                                    <?= $this->Form->postLink(__('Eliminar'), ['controller' => 'Users', 'action' => 'delete', $users->id], ['confirm' => __('Tens a certeza que pretende eliminar # {0}?', $users->id), 'class'=>'btn btn-danger btn-xs']) ?>    
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

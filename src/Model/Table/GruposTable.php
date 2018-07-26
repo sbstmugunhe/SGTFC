@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Grupos Model
  *
- * @property \App\Model\Table\UtilizadoresTable|\Cake\ORM\Association\HasMany $Utilizadores
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\HasMany $Users
  *
  * @method \App\Model\Entity\Grupo get($primaryKey, $options = [])
  * @method \App\Model\Entity\Grupo newEntity($data = null, array $options = [])
@@ -41,7 +41,7 @@ class GruposTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Utilizadores', [
+        $this->hasMany('Users', [
             'foreignKey' => 'grupo_id'
         ]);
     }

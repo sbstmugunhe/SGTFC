@@ -17,7 +17,7 @@ class AreaspesquisasControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.areaspesquisas',
-        'app.temas'
+        'app.propostas'
     ];
 
     /**

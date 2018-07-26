@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\UtilizadoresController;
+use App\Controller\ActividadesController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\UtilizadoresController Test Case
+ * App\Controller\ActividadesController Test Case
  */
-class UtilizadoresControllerTest extends IntegrationTestCase
+class ActividadesControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,9 +16,8 @@ class UtilizadoresControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.utilizadores',
-        'app.grupos',
-        'app.cursos'
+        'app.actividades',
+        'app.trabalhos'
     ];
 
     /**

@@ -25,11 +25,7 @@
                                         <dd>
                                             <?= h($curso->name) ?>
                                         </dd>
-                                                                                                                                                    <dt><?= __('Utilizadore') ?></dt>
-                                <dd>
-                                    <?= $curso->has('utilizadore') ? $curso->utilizadore->name : '' ?>
-                                </dd>
-                                                                                                                        <dt><?= __('Modified') ?></dt>
+                                                                                                                                                            <dt><?= __('Modified') ?></dt>
                                         <dd>
                                             <?= h($curso->modified) ?>
                                         </dd>

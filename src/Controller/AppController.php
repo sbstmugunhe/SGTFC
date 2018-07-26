@@ -29,20 +29,20 @@ use Cake\Event\Event;
 use Cake\Database\Type;
 // Habilita o parseamento de datas localizadas
 Type::build('date')
- ->useLocaleParser()
- ->setLocaleFormat('dd/MM/yyyy');
+->useLocaleParser()
+->setLocaleFormat('dd/MM/yyyy');
 Type::build('datetime')
- ->useLocaleParser()
- ->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
+->useLocaleParser()
+->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
 Type::build('timestamp')
- ->useLocaleParser()
- ->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
+->useLocaleParser()
+->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
 
 // Habilita o parseamento de decimal localizaddos
 Type::build('decimal')
- ->useLocaleParser();
+->useLocaleParser();
 Type::build('float')
- ->useLocaleParser();
+->useLocaleParser();
 class AppController extends Controller
 {
 
@@ -63,12 +63,12 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
-        /*$this->loadComponent('Auth', [
+        $this->loadComponent('Auth', [
             'authorize' => ['Controller'],
             'authenticate' => [
                 'Form' => [
                     'fields' => [
-                        'email' => 'email', 
+                        'username' => 'email', 
                         'password' => 'password'
                     ]
                 ]
@@ -79,14 +79,14 @@ class AppController extends Controller
             ],
             'authError'=> 'Dados Inválidos',
             'loginRedirect'=>[
-                'controller'=>'Users',
-                'action'=> 'home'
+                'controller'=>'Pages',
+                'action'=> 'display'
             ],
             'logoutRedirect'=>[
                 'controller'=>'Users',
                 'action'=> 'login'
             ]
-        ]);*/
+        ]);
 
         /*
          * Enable the following component for recommended CakePHP security settings.
@@ -99,13 +99,19 @@ class AppController extends Controller
     {
         $this->viewBuilder()->setTheme('AdminLTE');
         $this->viewBuilder()->setClassName('AdminLTE.AdminLTE');
-
-        // For CakePHP before 3.5
-        //$this->viewBuilder()->theme('AdminLTE');
     }
 
-    /*public function isAuthorized($user)
+    public function beforeFilter(Event $event)
     {
+        //$this->Auth->allow(['index', 'view', 'display']);
+    }
+
+    public function IsAuthorized($user)
+    {
+        if (isset($user['grupo_id']) && $user['grupo_id'] === 3) {
+            //$this->redirect(['controller' => 'users', 'action' => 'add']);
+            return true;
+        }
         return true;
-    }*/
+    }
 }

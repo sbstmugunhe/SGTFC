@@ -35,7 +35,7 @@ class AreaspesquisasController extends AppController
     public function view($id = null)
     {
         $areaspesquisa = $this->Areaspesquisas->get($id, [
-            'contain' => ['Temas']
+            'contain' => ['Propostas']
         ]);
 
         $this->set('areaspesquisa', $areaspesquisa);

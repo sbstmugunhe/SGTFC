@@ -8,7 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property int $utilizadore_id
  * @property string $comentarios
  * @property \Cake\I18n\FrozenTime $created
  * @property string $modified
@@ -29,7 +28,6 @@ class Curso extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'utilizadore_id' => true,
         'comentarios' => true,
         'created' => true,
         'modified' => true,

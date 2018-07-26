@@ -33,7 +33,6 @@
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('areaspesquisa_id') ?></th>
                 <th><?= $this->Paginator->sort('estado') ?></th>
-                <th><?= $this->Paginator->sort('situacao') ?></th>
                 <th><?= __('Acções') ?></th>
               </tr>
             </thead>
@@ -43,12 +42,9 @@
                 <td><?= $this->Number->format($proposta->id) ?></td>
                 <td><?= h($proposta->name) ?></td>
                 <td><?= $proposta->has('areaspesquisa') ? $this->Html->link($proposta->areaspesquisa->name, ['controller' => 'Areaspesquisas', 'action' => 'view', $proposta->areaspesquisa->id]) : '' ?></td>
-                <td><?= h($proposta->estado) ?></td>
-                <td><?= h($proposta->situacao) ?></td>
+                <td><span class="label label-warning"><?= h($proposta->estado) ?></span></td>
                 <td class="actions" style="white-space:nowrap">
-                  <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $proposta->id], ['class'=>'btn btn-info btn-xs']) ?>
-                  <?= $this->Html->link(__('Editar'), ['action' => 'edit', $proposta->id], ['class'=>'btn btn-warning btn-xs']) ?>
-                  <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $proposta->id], ['confirm' => __('Pretende apagar este registo?'), 'class'=>'btn btn-danger btn-xs']) ?>
+                  <?= $this->Html->link(__('Avaliar'), ['action' => 'avaliar', $proposta->id], ['class'=>'btn btn-info btn-xs']) ?>
                 </td>
               </tr>
             <?php endforeach; ?>

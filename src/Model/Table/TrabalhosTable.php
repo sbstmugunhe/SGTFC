@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Trabalhos Model
  *
  * @property \App\Model\Table\PropostasTable|\Cake\ORM\Association\BelongsTo $Propostas
+ * @property \App\Model\Table\ActividadesTable|\Cake\ORM\Association\HasMany $Actividades
  *
  * @method \App\Model\Entity\Trabalho get($primaryKey, $options = [])
  * @method \App\Model\Entity\Trabalho newEntity($data = null, array $options = [])
@@ -36,7 +37,7 @@ class TrabalhosTable extends Table
         parent::initialize($config);
 
         $this->setTable('trabalhos');
-        $this->setDisplayField('name');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -44,6 +45,9 @@ class TrabalhosTable extends Table
         $this->belongsTo('Propostas', [
             'foreignKey' => 'proposta_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Actividades', [
+            'foreignKey' => 'trabalho_id'
         ]);
     }
 
@@ -58,12 +62,6 @@ class TrabalhosTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
-        $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
 
         $validator
             ->scalar('estudocaso')
@@ -87,10 +85,6 @@ class TrabalhosTable extends Table
         $validator
             ->scalar('estrutura')
             ->allowEmpty('estrutura');
-
-        $validator
-            ->scalar('material')
-            ->allowEmpty('material');
 
         $validator
             ->scalar('obras')

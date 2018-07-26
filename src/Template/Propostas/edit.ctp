@@ -28,8 +28,11 @@
             echo $this->Form->input('name');
             echo $this->Form->input('areaspesquisa_id', ['options' => $areaspesquisas]);
             echo $this->Form->input('descricao');
-            echo $this->Form->input('estado');
-            echo $this->Form->input('situacao');
+            echo $this->Form->select('estado', [
+              'pendente' => 'Pendente', 
+              'aprovado' => 'Aprovado', 
+              'reprovado' => 'Reprodo'], 
+              ['class'=>'form-control select2', 'style'=>'width: 100%;']);
             echo $this->Form->input('parecer');
           ?>
           </div>

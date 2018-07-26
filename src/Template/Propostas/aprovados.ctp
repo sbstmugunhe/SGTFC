@@ -43,10 +43,10 @@
                 <td><?= $this->Number->format($proposta->id) ?></td>
                 <td><?= h($proposta->name) ?></td>
                 <td><?= $proposta->has('areaspesquisa') ? $this->Html->link($proposta->areaspesquisa->name, ['controller' => 'Areaspesquisas', 'action' => 'view', $proposta->areaspesquisa->id]) : '' ?></td>
-                <td><?= h($proposta->estado) ?></td>
-                <td><?= h($proposta->situacao) ?></td>
+                <td><span class="label label-success"><?= h($proposta->estado) ?></span></td>
+                <td><?= h($proposta->modified) ?></td>
                 <td class="actions" style="white-space:nowrap">
-                  <?= $this->Html->link(__('Saber Mais'), ['action' => 'view', $proposta->id], ['class'=>'btn btn-info btn-xs']) ?>
+                  <?= $this->Html->link(__('submeter'), ['action' => 'submeter', $proposta->id], ['class'=>'btn btn-info btn-xs']) ?>
                 </td>
               </tr>
             <?php endforeach; ?>

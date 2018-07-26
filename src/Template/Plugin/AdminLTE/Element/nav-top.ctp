@@ -127,17 +127,17 @@
       <!-- User Account: style can be found in dropdown.less -->
       <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <?php echo $this->Html->image('user2-160x160.jpg', array('class' => 'user-image', 'alt' => 'User Image')); ?>
-          <span class="hidden-xs">Alexander Pierce</span>
+          <?php echo $this->Html->image('user6-128x128.jpg', array('class' => 'user-image', 'alt' => 'User Image')); ?>
+          <span class="hidden-xs">Momede Nazir Amade</span>
         </a>
         <ul class="dropdown-menu">
           <!-- User image -->
           <li class="user-header">
-            <?php echo $this->Html->image('user2-160x160.jpg', array('class' => 'img-circle', 'alt' => 'User Image')); ?>
+            <?php echo $this->Html->image('user6-128x128.jpg', array('class' => 'img-circle', 'alt' => 'User Image')); ?>
 
             <p>
-              Alexander Pierce - Web Developer
-              <small>Member since Nov. 2012</small>
+              Momede Nazir Amade
+              <small>Comissão Cientifica</small>
             </p>
           </li>
           <!-- Menu Body -->
@@ -161,7 +161,7 @@
               <a href="#" class="btn btn-default btn-flat">Profile</a>
             </div>
             <div class="pull-right">
-              <a href="#" class="btn btn-default btn-flat">Sign out</a>
+              <a href="<?php echo $this->Url->build('/users/logout '); ?>" class="btn btn-default btn-flat">Sair</a>
             </div>
           </li>
         </ul>

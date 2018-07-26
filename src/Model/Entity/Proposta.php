@@ -10,14 +10,14 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property int $areaspesquisa_id
  * @property string $descricao
- * @property bool $estado
- * @property bool $situacao
+ * @property string $estado
  * @property string $parecer
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $updated
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Areaspesquisa $areaspesquisa
+ * @property \App\Model\Entity\Trabalho[] $trabalhos
  */
 class Proposta extends Entity
 {
@@ -36,11 +36,11 @@ class Proposta extends Entity
         'areaspesquisa_id' => true,
         'descricao' => true,
         'estado' => true,
-        'situacao' => true,
         'parecer' => true,
         'created' => true,
         'updated' => true,
         'modified' => true,
-        'areaspesquisa' => true
+        'areaspesquisa' => true,
+        'trabalhos' => true
     ];
 }

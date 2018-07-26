@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $descricao
  * @property \Cake\I18n\FrozenTime $created
  *
- * @property \App\Model\Entity\Tema[] $temas
+ * @property \App\Model\Entity\Proposta[] $propostas
  */
 class Areaspesquisa extends Entity
 {
@@ -29,6 +29,6 @@ class Areaspesquisa extends Entity
         'name' => true,
         'descricao' => true,
         'created' => true,
-        'temas' => true
+        'propostas' => true
     ];
 }

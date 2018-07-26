@@ -2,18 +2,21 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * Utilizadore Entity
  *
  * @property int $id
- * @property string $name
+ * @property string $primeiro_nome
+ * @property string $ultimo_nome
  * @property string $username
  * @property string $email
  * @property int $grupo_id
+ * @property string $passkey
+ * @property \Cake\I18n\FrozenTime $timeout
  * @property string $password
  * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $updated
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Grupo $grupo
@@ -32,13 +35,15 @@ class Utilizadore extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
+        'primeiro_nome' => true,
+        'ultimo_nome' => true,
         'username' => true,
         'email' => true,
         'grupo_id' => true,
+        'passkey' => true,
+        'timeout' => true,
         'password' => true,
         'created' => true,
-        'updated' => true,
         'modified' => true,
         'grupo' => true,
         'cursos' => true
@@ -52,4 +57,10 @@ class Utilizadore extends Entity
     protected $_hidden = [
         'password'
     ];
+
+    protected function _setPassword($value)
+    {
+        $hasher = new DefaultPasswordHasher();
+        return $hasher->hash($value);
+    }
 }

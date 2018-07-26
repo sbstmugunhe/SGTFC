@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Utilizadores
+    Actividades
     <div class="pull-right"><?= $this->Html->link(__('Novo Registo'), ['action' => 'add'], ['class'=>'btn btn-success btn-xs']) ?></div>
   </h1>
 </section>
@@ -30,27 +30,27 @@
             <thead>
               <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('trabalho_id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
-                <th><?= $this->Paginator->sort('username') ?></th>
-                <th><?= $this->Paginator->sort('email') ?></th>
-                <th><?= $this->Paginator->sort('grupo_id') ?></th>
-                <th><?= $this->Paginator->sort('password') ?></th>
+                <th><?= $this->Paginator->sort('inicio') ?></th>
+                <th><?= $this->Paginator->sort('fim') ?></th>
+                <th><?= $this->Paginator->sort('duracao') ?></th>
                 <th><?= __('Acções') ?></th>
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($utilizadores as $utilizadore): ?>
+            <?php foreach ($actividades as $actividade): ?>
               <tr>
-                <td><?= $this->Number->format($utilizadore->id) ?></td>
-                <td><?= h($utilizadore->name) ?></td>
-                <td><?= h($utilizadore->username) ?></td>
-                <td><?= h($utilizadore->email) ?></td>
-                <td><?= $utilizadore->has('grupo') ? $this->Html->link($utilizadore->grupo->name, ['controller' => 'Grupos', 'action' => 'view', $utilizadore->grupo->id]) : '' ?></td>
-                <td><?= h($utilizadore->password) ?></td>
+                <td><?= $this->Number->format($actividade->id) ?></td>
+                <td><?= $actividade->has('trabalho') ? $this->Html->link($actividade->trabalho->name, ['controller' => 'Trabalhos', 'action' => 'view', $actividade->trabalho->id]) : '' ?></td>
+                <td><?= h($actividade->name) ?></td>
+                <td><?= h($actividade->inicio) ?></td>
+                <td><?= h($actividade->fim) ?></td>
+                <td><?= $this->Number->format($actividade->duracao) ?></td>
                 <td class="actions" style="white-space:nowrap">
-                  <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $utilizadore->id], ['class'=>'btn btn-info btn-xs']) ?>
-                  <?= $this->Html->link(__('Editar'), ['action' => 'edit', $utilizadore->id], ['class'=>'btn btn-warning btn-xs']) ?>
-                  <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $utilizadore->id], ['confirm' => __('Pretende apagar este registo?'), 'class'=>'btn btn-danger btn-xs']) ?>
+                  <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $actividade->id], ['class'=>'btn btn-info btn-xs']) ?>
+                  <?= $this->Html->link(__('Editar'), ['action' => 'edit', $actividade->id], ['class'=>'btn btn-warning btn-xs']) ?>
+                  <?= $this->Form->postLink(__('Apagar'), ['action' => 'delete', $actividade->id], ['confirm' => __('Pretende apagar este registo?'), 'class'=>'btn btn-danger btn-xs']) ?>
                 </td>
               </tr>
             <?php endforeach; ?>

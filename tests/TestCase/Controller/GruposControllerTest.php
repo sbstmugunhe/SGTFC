@@ -17,7 +17,7 @@ class GruposControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.grupos',
-        'app.utilizadores'
+        'app.users'
     ];
 
     /**

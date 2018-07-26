@@ -17,7 +17,8 @@ class PropostasControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.propostas',
-        'app.areaspesquisas'
+        'app.areaspesquisas',
+        'app.trabalhos'
     ];
 
     /**

@@ -8,18 +8,17 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $proposta_id
- * @property string $name
  * @property string $estudocaso
  * @property string $geral
  * @property string $especificos
  * @property string $dataentrega
  * @property string $estrutura
- * @property string $material
  * @property string $obras
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Proposta $proposta
+ * @property \App\Model\Entity\Actividade[] $actividades
  */
 class Trabalho extends Entity
 {
@@ -35,16 +34,15 @@ class Trabalho extends Entity
      */
     protected $_accessible = [
         'proposta_id' => true,
-        'name' => true,
         'estudocaso' => true,
         'geral' => true,
         'especificos' => true,
         'dataentrega' => true,
         'estrutura' => true,
-        'material' => true,
         'obras' => true,
         'created' => true,
         'modified' => true,
-        'proposta' => true
+        'proposta' => true,
+        'actividades' => true
     ];
 }

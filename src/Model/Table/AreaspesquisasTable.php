@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Areaspesquisas Model
  *
- * @property \App\Model\Table\TemasTable|\Cake\ORM\Association\HasMany $Temas
+ * @property \App\Model\Table\PropostasTable|\Cake\ORM\Association\HasMany $Propostas
  *
  * @method \App\Model\Entity\Areaspesquisa get($primaryKey, $options = [])
  * @method \App\Model\Entity\Areaspesquisa newEntity($data = null, array $options = [])
@@ -41,7 +41,7 @@ class AreaspesquisasTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Temas', [
+        $this->hasMany('Propostas', [
             'foreignKey' => 'areaspesquisa_id'
         ]);
     }

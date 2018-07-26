@@ -30,11 +30,12 @@
             <thead>
               <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('name') ?></th>
+                <th><?= $this->Paginator->sort('primeiro_nome') ?></th>
+                <th><?= $this->Paginator->sort('ultimo_nome') ?></th>
                 <th><?= $this->Paginator->sort('username') ?></th>
                 <th><?= $this->Paginator->sort('email') ?></th>
-                <th><?= $this->Paginator->sort('group_id') ?></th>
-                <th><?= $this->Paginator->sort('password') ?></th>
+                <th><?= $this->Paginator->sort('grupo_id') ?></th>
+                <th><?= $this->Paginator->sort('passkey') ?></th>
                 <th><?= __('Acções') ?></th>
               </tr>
             </thead>
@@ -42,11 +43,12 @@
             <?php foreach ($users as $user): ?>
               <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
-                <td><?= h($user->name) ?></td>
+                <td><?= h($user->primeiro_nome) ?></td>
+                <td><?= h($user->ultimo_nome) ?></td>
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->email) ?></td>
-                <td><?= $user->has('group') ? $this->Html->link($user->group->name, ['controller' => 'Groups', 'action' => 'view', $user->group->id]) : '' ?></td>
-                <td><?= h($user->password) ?></td>
+                <td><?= $user->has('grupo') ? $this->Html->link($user->grupo->name, ['controller' => 'Grupos', 'action' => 'view', $user->grupo->id]) : '' ?></td>
+                <td><?= h($user->passkey) ?></td>
                 <td class="actions" style="white-space:nowrap">
                   <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $user->id], ['class'=>'btn btn-info btn-xs']) ?>
                   <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id], ['class'=>'btn btn-warning btn-xs']) ?>

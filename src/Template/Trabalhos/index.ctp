@@ -31,7 +31,6 @@
               <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('proposta_id') ?></th>
-                <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('estudocaso') ?></th>
                 <th><?= $this->Paginator->sort('geral') ?></th>
                 <th><?= $this->Paginator->sort('dataentrega') ?></th>
@@ -43,7 +42,6 @@
               <tr>
                 <td><?= $this->Number->format($trabalho->id) ?></td>
                 <td><?= $trabalho->has('proposta') ? $this->Html->link($trabalho->proposta->name, ['controller' => 'Propostas', 'action' => 'view', $trabalho->proposta->id]) : '' ?></td>
-                <td><?= h($trabalho->name) ?></td>
                 <td><?= h($trabalho->estudocaso) ?></td>
                 <td><?= h($trabalho->geral) ?></td>
                 <td><?= h($trabalho->dataentrega) ?></td>

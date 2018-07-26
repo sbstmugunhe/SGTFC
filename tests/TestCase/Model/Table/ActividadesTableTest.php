@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\GroupsTable;
+use App\Model\Table\ActividadesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\GroupsTable Test Case
+ * App\Model\Table\ActividadesTable Test Case
  */
-class GroupsTableTest extends TestCase
+class ActividadesTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\GroupsTable
+     * @var \App\Model\Table\ActividadesTable
      */
-    public $Groups;
+    public $Actividades;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class GroupsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.groups',
-        'app.users'
+        'app.actividades',
+        'app.trabalhos'
     ];
 
     /**
@@ -36,8 +36,8 @@ class GroupsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('Groups') ? [] : ['className' => GroupsTable::class];
-        $this->Groups = TableRegistry::getTableLocator()->get('Groups', $config);
+        $config = TableRegistry::getTableLocator()->exists('Actividades') ? [] : ['className' => ActividadesTable::class];
+        $this->Actividades = TableRegistry::getTableLocator()->get('Actividades', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class GroupsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Groups);
+        unset($this->Actividades);
 
         parent::tearDown();
     }
@@ -68,6 +68,16 @@ class GroupsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

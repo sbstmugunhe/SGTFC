@@ -31,7 +31,6 @@
               <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
-                <th><?= $this->Paginator->sort('utilizadore_id') ?></th>
                 <th><?= __('Acções') ?></th>
               </tr>
             </thead>
@@ -40,7 +39,6 @@
               <tr>
                 <td><?= $this->Number->format($curso->id) ?></td>
                 <td><?= h($curso->name) ?></td>
-                <td><?= $curso->has('utilizadore') ? $this->Html->link($curso->utilizadore->name, ['controller' => 'Utilizadores', 'action' => 'view', $curso->utilizadore->id]) : '' ?></td>
                 <td class="actions" style="white-space:nowrap">
                   <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $curso->id], ['class'=>'btn btn-info btn-xs']) ?>
                   <?= $this->Html->link(__('Editar'), ['action' => 'edit', $curso->id], ['class'=>'btn btn-warning btn-xs']) ?>

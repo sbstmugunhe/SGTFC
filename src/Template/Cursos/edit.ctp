@@ -26,7 +26,6 @@
           <div class="box-body">
           <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('utilizadore_id', ['options' => $utilizadores]);
             echo $this->Form->input('comentarios');
           ?>
           </div>

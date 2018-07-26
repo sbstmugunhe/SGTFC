@@ -13,11 +13,29 @@ use App\Controller\AppController;
 class UtilizadoresController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
+    public function home()
+    {
+
+    }
+
+    public function login()
+    {
+        if($this->request->is('post'))
+        {
+            $utilizadore = $this->Auth->identify();
+            if($utilizadore){
+                $this->Auth->setUser($utilizadore);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            else
+            {
+                $this->Flash->error('Dados Invalidos, por favor tente novamente', ['key' => 'auth']);
+
+            }
+        }
+    }
+
+    
     public function index()
     {
         $this->paginate = [

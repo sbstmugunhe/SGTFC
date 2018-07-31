@@ -24,8 +24,7 @@ class CursosTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.cursos',
-        'app.utilizadores'
+        'app.cursos'
     ];
 
     /**
@@ -68,16 +67,6 @@ class CursosTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

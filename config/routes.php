@@ -80,6 +80,17 @@ Router::scope('/', function (RouteBuilder $routes) {
     Router::prefix('admin', function ($routes) {
     // All routes here will be prefixed with `/admin`
     // And have the prefix => admin route element added.
-    $routes->fallbacks(DashedRoute::class);
-});
+        $routes->fallbacks(DashedRoute::class);
+    });
+    Router::prefix('direstudante', function ($routes) {
+    // All routes here will be prefixed with `/admin`
+    // And have the prefix => admin route element added.
+        $routes->fallbacks(DashedRoute::class);
+    });
+
+    Router::prefix('dirfaculdade', function ($routes) {
+    // All routes here will be prefixed with `/admin`
+    // And have the prefix => admin route element added.
+        $routes->fallbacks(DashedRoute::class);
+    });
 });

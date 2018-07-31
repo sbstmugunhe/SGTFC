@@ -128,57 +128,56 @@
       <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <?php echo $this->Html->image('user6-128x128.jpg', array('class' => 'user-image', 'alt' => 'User Image')); ?>
-          <span class="hidden-xs">
-            <?php
+          <span class="hidden-xs"><?php
             if ($this->request->session()->read('Auth.User.primeiro_nome')) {
               echo $this->request->session()->read('Auth.User.primeiro_nome').' '.$this->request->session()->read('Auth.User.ultimo_nome');
             }
             ?></span>
-          </a>
-          <ul class="dropdown-menu">
-            <!-- User image -->
-            <li class="user-header">
-              <?php echo $this->Html->image('user6-128x128.jpg', array('class' => 'img-circle', 'alt' => 'User Image')); ?>
+        </a>
+        <ul class="dropdown-menu">
+          <!-- User image -->
+          <li class="user-header">
+            <?php echo $this->Html->image('user6-128x128.jpg', array('class' => 'img-circle', 'alt' => 'User Image')); ?>
 
-              <p>
-                <?php
+            <p>
+             <?php
             if ($this->request->session()->read('Auth.User.primeiro_nome')) {
               echo $this->request->session()->read('Auth.User.primeiro_nome').' '.$this->request->session()->read('Auth.User.ultimo_nome');
             }
             ?>
-                <small><?php echo $this->request->session()->read('Auth.User.Grupo.name'); ?></small>
-              </p>
-            </li>
-            <!-- Menu Body -->
-            <li class="user-body">
-              <div class="row">
-                <div class="col-xs-4 text-center">
-                  <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Friends</a>
-                </div>
+              <small>Comissão Cientifica</small>
+            </p>
+          </li>
+          <!-- Menu Body -->
+          <li class="user-body">
+            <div class="row">
+              <div class="col-xs-4 text-center">
+                <a href="#">Followers</a>
               </div>
-              <!-- /.row -->
-            </li>
-            <!-- Menu Footer-->
-            <li class="user-footer">
-              <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">Profile</a>
+              <div class="col-xs-4 text-center">
+                <a href="#">Sales</a>
               </div>
-              <div class="pull-right">
-                <a href="<?php echo $this->Url->build('/users/logout '); ?>" class="btn btn-default btn-flat">Sair</a>
+              <div class="col-xs-4 text-center">
+                <a href="#">Friends</a>
               </div>
-            </li>
-          </ul>
-        </li>
-        <!-- Control Sidebar Toggle Button -->
-        <li>
-          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+            </div>
+            <!-- /.row -->
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <div class="pull-left">
+              <a href="#" class="btn btn-default btn-flat">Profile</a>
+            </div>
+            <div class="pull-right">
+              <a href="<?php echo $this->Url->build('/users/logout '); ?>" class="btn btn-default btn-flat">Sair</a>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <!-- Control Sidebar Toggle Button -->
+      <li>
+        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>

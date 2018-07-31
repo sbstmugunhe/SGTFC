@@ -13,15 +13,45 @@ use Cake\Event\Event;
  */
 class UsersController extends AppController
 {
+    //$userName = $this->Auth->user('primeiro_nome');
 
-    
+
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         //$this->Auth->allow('add');
+        
+    }
+
+    
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                $loggedUser = $this->request->session()->read('Auth.User');
+                if($loggedUser['grupo_id'] == 1){
+                    return $this->redirect('/');
+                }else if($loggedUser['grupo_id'] == 2){
+                    return $this->redirect('/dirfaculdade/trabalhos/index');
+                }else if($loggedUser['grupo_id'] == 3){
+                    return $this->redirect('/dirdirectorcurso/trabalhos/index');
+                }else if($loggedUser['grupo_id'] == 4){
+                    return $this->redirect('/dirsupervisor/trabalhos/index');
+                }
+                else{
+                    return $this->redirect($this->Auth->redirectUrl('/direstudante/trabalhos/index'));
+                }
+            }else{
+                $this->Flash->error('Dados Invalidos, por favor tente novamente', ['key' => 'auth']);
+            }
+
+        }
     }
 
 
+/*
     public function login()
     {
         if($this->request->is('post'))
@@ -37,14 +67,14 @@ class UsersController extends AppController
 
             }
         }
+    }*/
+
+
+    public function logout(){
+        $this->Flash->success('Saiu do sistema com sucesso.');
+        return $this->redirect($this->Auth->logout());
+
     }
-
-
-public function logout(){
-    $this->Flash->success('Saiu do sistema com sucesso.');
-    return $this->redirect($this->Auth->logout());
-
-}
 
     /**
      * Index method

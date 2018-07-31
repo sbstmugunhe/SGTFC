@@ -78,6 +78,7 @@
             <li><a href="<?php echo $this->Url->build('/propostas/add'); ?>"><i class="fa fa-circle-o"></i> Propôr um Tema</a></li>
         </ul>
     </li>
+    
     <li class="treeview">
         <a href="#">
             <i class="fa fa-book"></i>

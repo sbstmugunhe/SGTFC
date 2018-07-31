@@ -11,8 +11,6 @@ use Cake\ORM\Entity;
  * @property string $comentarios
  * @property \Cake\I18n\FrozenTime $created
  * @property string $modified
- *
- * @property \App\Model\Entity\Utilizadore $utilizadore
  */
 class Curso extends Entity
 {
@@ -30,7 +28,6 @@ class Curso extends Entity
         'name' => true,
         'comentarios' => true,
         'created' => true,
-        'modified' => true,
-        'utilizadore' => true
+        'modified' => true
     ];
 }

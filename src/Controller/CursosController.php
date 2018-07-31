@@ -20,9 +20,6 @@ class CursosController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Utilizadores']
-        ];
         $cursos = $this->paginate($this->Cursos);
 
         $this->set(compact('cursos'));
@@ -38,7 +35,7 @@ class CursosController extends AppController
     public function view($id = null)
     {
         $curso = $this->Cursos->get($id, [
-            'contain' => ['Utilizadores']
+            'contain' => []
         ]);
 
         $this->set('curso', $curso);
@@ -61,8 +58,7 @@ class CursosController extends AppController
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Curso'));
             }
         }
-        $utilizadores = $this->Cursos->Utilizadores->find('list', ['limit' => 200]);
-        $this->set(compact('curso', 'utilizadores'));
+        $this->set(compact('curso'));
         $this->set('_serialize', ['curso']);
     }
 
@@ -87,8 +83,7 @@ class CursosController extends AppController
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Curso'));
             }
         }
-        $utilizadores = $this->Cursos->Utilizadores->find('list', ['limit' => 200]);
-        $this->set(compact('curso', 'utilizadores'));
+        $this->set(compact('curso'));
         $this->set('_serialize', ['curso']);
     }
 

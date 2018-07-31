@@ -33,6 +33,7 @@ class GruposTable extends Table
      */
     public function initialize(array $config)
     {
+
         parent::initialize($config);
 
         $this->setTable('grupos');
@@ -44,6 +45,7 @@ class GruposTable extends Table
         $this->hasMany('Users', [
             'foreignKey' => 'grupo_id'
         ]);
+
     }
 
     /**

@@ -46,6 +46,8 @@ Type::build('float')
 class AppController extends Controller
 {
 
+
+
     /**
      * Initialization hook method.
      *
@@ -114,4 +116,5 @@ class AppController extends Controller
         }
         return true;
     }
+
 }

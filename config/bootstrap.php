@@ -218,6 +218,9 @@ if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
 
+Plugin::load('Acl', ['bootstrap' => true]);
+Plugin::load('Migrations');
+
 Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
 Configure::write('Theme', [
     'title' => 'DMI | Sistema de Gestão de Monografias.',
@@ -233,3 +236,5 @@ Configure::write('Theme', [
     'folder' => ROOT,
     'skin' => 'green-light' // default is 'blue'
 ]);
+
+//Plugin::load('Acl', ['bootstrap' => true]);

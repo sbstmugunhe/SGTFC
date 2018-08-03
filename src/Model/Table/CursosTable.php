@@ -49,18 +49,18 @@ class CursosTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->maxLength('name', 255)
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->scalar('comentarios')
-            ->allowEmpty('comentarios');
+        ->scalar('comentarios')
+        ->allowEmpty('comentarios');
 
         return $validator;
     }

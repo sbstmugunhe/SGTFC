@@ -52,32 +52,32 @@ class ActividadesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->maxLength('name', 255)
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->date('inicio')
-            ->requirePresence('inicio', 'create')
-            ->notEmpty('inicio');
+        ->date('inicio')
+        ->requirePresence('inicio', 'create')
+        ->notEmpty('inicio');
 
         $validator
-            ->date('fim')
-            ->requirePresence('fim', 'create')
-            ->notEmpty('fim');
+        ->date('fim')
+        ->requirePresence('fim', 'create')
+        ->notEmpty('fim');
 
         $validator
-            ->integer('duracao')
-            ->allowEmpty('duracao');
+        ->integer('duracao')
+        ->allowEmpty('duracao');
 
         $validator
-            ->scalar('comentarios')
-            ->allowEmpty('comentarios');
+        ->scalar('comentarios')
+        ->allowEmpty('comentarios');
 
         return $validator;
     }

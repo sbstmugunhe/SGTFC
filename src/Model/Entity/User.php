@@ -62,4 +62,22 @@ class User extends Entity
             return (new DefaultPasswordHasher)->hash($password);
         }
     }
+
+    public function parentNode()
+    {
+        if (!$this->id) {
+            return null;
+        }
+        if (isset($this->grupo_id)) {
+            $grupoId = $this->grupo_id;
+        } else {
+            $Users = TableRegistry::get('Users');
+            $user = $Users->find('all', ['fields' => ['grupo_id']])->where(['id' => $this->id])->first();
+            $grupoId = $user->grupo_id;
+        }
+        if (!$grupoId) {
+            return null;
+        }
+        return ['Grupos' => ['id' => $grupoId]];
+    }
 }

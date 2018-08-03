@@ -22,58 +22,37 @@ class UsersController extends AppController
         //$this->Auth->allow('add');
         
     }
-
-    
+   
     public function login()
     {
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                $loggedUser = $this->request->session()->read('Auth.User');
-                if($loggedUser['grupo_id'] == 1){
-                    return $this->redirect('/');
-                }else if($loggedUser['grupo_id'] == 2){
-                    return $this->redirect('/dirfaculdade/trabalhos/index');
-                }else if($loggedUser['grupo_id'] == 3){
-                    return $this->redirect('/dirdirectorcurso/trabalhos/index');
-                }else if($loggedUser['grupo_id'] == 4){
-                    return $this->redirect('/dirsupervisor/trabalhos/index');
+        if ($this->request->is('post')) {              
+                $user = $this->Auth->identify();
+                if ($user) {
+                    $this->Auth->setUser($user);
+                    $loggedUser = $this->request->session()->read('Auth.User');
+                    if($loggedUser['grupo_id'] == 1){
+                        return $this->redirect('/');
+                    }else if($loggedUser['grupo_id'] == 2){
+                        return $this->redirect('/dirfaculdade/trabalhos/index');
+                    }else if($loggedUser['grupo_id'] == 3){
+                        return $this->redirect('/dirdirectorcurso/trabalhos/index');
+                    }else if($loggedUser['grupo_id'] == 4){
+                        return $this->redirect('/dirsupervisor/trabalhos/index');
+                    }
+                    else{
+                        return $this->redirect($this->Auth->redirectUrl('/direstudante/trabalhos/index'));
+                    }
+                }else{
+                    $this->Flash->error('Dados Invalidos, por favor tente novamente', ['key' => 'auth']);
                 }
-                else{
-                    return $this->redirect($this->Auth->redirectUrl('/direstudante/trabalhos/index'));
-                }
-            }else{
-                $this->Flash->error('Dados Invalidos, por favor tente novamente', ['key' => 'auth']);
-            }
-
         }
     }
 
 
-/*
-    public function login()
-    {
-        if($this->request->is('post'))
-        {
-            $user = $this->Auth->identify();
-            if($user){
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            else
-            {
-                $this->Flash->error('Dados Invalidos, por favor tente novamente', ['key' => 'auth']);
-
-            }
-        }
-    }*/
-
-
+//Este metodo sai do sistema
     public function logout(){
         $this->Flash->success('Saiu do sistema com sucesso.');
         return $this->redirect($this->Auth->logout());
-
     }
 
     /**
@@ -84,7 +63,8 @@ class UsersController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Grupos']
+            'contain' => ['Grupos'],
+            'limit' => 10
         ];
         $users = $this->paginate($this->Users);
 

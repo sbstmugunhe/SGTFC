@@ -15,7 +15,6 @@ if (file_exists($file)) {
         </div>
         <div class="pull-left info">
             <p> <?php
-
             if ($this->request->session()->read('Auth.User.primeiro_nome')) {
                 echo $this->request->session()->read('Auth.User.primeiro_nome').' '.$this->request->session()->read('Auth.User.ultimo_nome');
             }

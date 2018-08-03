@@ -56,46 +56,46 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('primeiro_nome')
-            ->maxLength('primeiro_nome', 225)
-            ->requirePresence('primeiro_nome', 'create')
-            ->notEmpty('primeiro_nome');
+        ->scalar('primeiro_nome')
+        ->maxLength('primeiro_nome', 225)
+        ->requirePresence('primeiro_nome', 'create')
+        ->notEmpty('primeiro_nome');
 
         $validator
-            ->scalar('ultimo_nome')
-            ->maxLength('ultimo_nome', 255)
-            ->allowEmpty('ultimo_nome');
+        ->scalar('ultimo_nome')
+        ->maxLength('ultimo_nome', 255)
+        ->allowEmpty('ultimo_nome');
 
         $validator
-            ->scalar('username')
-            ->maxLength('username', 255)
-            ->requirePresence('username', 'create')
-            ->notEmpty('username');
+        ->scalar('username')
+        ->maxLength('username', 255)
+        ->requirePresence('username', 'create')
+        ->notEmpty('username');
 
         $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
+        ->email('email')
+        ->requirePresence('email', 'create')
+        ->notEmpty('email');
 
         $validator
-            ->scalar('passkey')
-            ->maxLength('passkey', 13)
-            ->requirePresence('passkey', 'create')
-            ->notEmpty('passkey');
+        ->scalar('passkey')
+        ->maxLength('passkey', 13)
+        ->requirePresence('passkey', 'create')
+        ->notEmpty('passkey');
 
         $validator
-            ->dateTime('timeout')
-            ->allowEmpty('timeout');
+        ->dateTime('timeout')
+        ->allowEmpty('timeout');
 
         $validator
-            ->scalar('password')
-            ->maxLength('password', 255)
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
+        ->scalar('password')
+        ->maxLength('password', 255)
+        ->requirePresence('password', 'create')
+        ->notEmpty('password');
 
         return $validator;
     }

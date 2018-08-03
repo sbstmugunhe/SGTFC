@@ -45,9 +45,6 @@ Type::build('float')
 ->useLocaleParser();
 class AppController extends Controller
 {
-
-
-
     /**
      * Initialization hook method.
      *

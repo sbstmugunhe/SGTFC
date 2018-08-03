@@ -102,5 +102,4 @@ class PropostasTable extends Table
     {
         return $this->exists(['id' => $propostaId, 'user_id' => $userId]);
     }
-
 }

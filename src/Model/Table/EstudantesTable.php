@@ -51,77 +51,77 @@ class EstudantesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+        ->integer('id')
+        ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+        ->scalar('name')
+        ->maxLength('name', 255)
+        ->requirePresence('name', 'create')
+        ->notEmpty('name');
 
         $validator
-            ->scalar('apelido')
-            ->maxLength('apelido', 255)
-            ->requirePresence('apelido', 'create')
-            ->notEmpty('apelido');
+        ->scalar('apelido')
+        ->maxLength('apelido', 255)
+        ->requirePresence('apelido', 'create')
+        ->notEmpty('apelido');
 
         $validator
-            ->date('data_nascimento')
-            ->requirePresence('data_nascimento', 'create')
-            ->notEmpty('data_nascimento');
+        ->date('data_nascimento')
+        ->requirePresence('data_nascimento', 'create')
+        ->notEmpty('data_nascimento');
 
         $validator
-            ->scalar('genero')
-            ->maxLength('genero', 255)
-            ->allowEmpty('genero');
+        ->scalar('genero')
+        ->maxLength('genero', 255)
+        ->allowEmpty('genero');
 
         $validator
-            ->scalar('nome_pai')
-            ->maxLength('nome_pai', 255)
-            ->allowEmpty('nome_pai');
+        ->scalar('nome_pai')
+        ->maxLength('nome_pai', 255)
+        ->allowEmpty('nome_pai');
 
         $validator
-            ->scalar('nome_mae')
-            ->maxLength('nome_mae', 255)
-            ->allowEmpty('nome_mae');
+        ->scalar('nome_mae')
+        ->maxLength('nome_mae', 255)
+        ->allowEmpty('nome_mae');
 
         $validator
-            ->scalar('telefone')
-            ->maxLength('telefone', 255)
-            ->requirePresence('telefone', 'create')
-            ->notEmpty('telefone');
+        ->scalar('telefone')
+        ->maxLength('telefone', 255)
+        ->requirePresence('telefone', 'create')
+        ->notEmpty('telefone');
 
         $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
+        ->email('email')
+        ->requirePresence('email', 'create')
+        ->notEmpty('email');
 
         $validator
-            ->scalar('tipo_documento')
-            ->maxLength('tipo_documento', 255)
-            ->requirePresence('tipo_documento', 'create')
-            ->notEmpty('tipo_documento');
+        ->scalar('tipo_documento')
+        ->maxLength('tipo_documento', 255)
+        ->requirePresence('tipo_documento', 'create')
+        ->notEmpty('tipo_documento');
 
         $validator
-            ->scalar('numero_doc')
-            ->maxLength('numero_doc', 255)
-            ->requirePresence('numero_doc', 'create')
-            ->notEmpty('numero_doc');
+        ->scalar('numero_doc')
+        ->maxLength('numero_doc', 255)
+        ->requirePresence('numero_doc', 'create')
+        ->notEmpty('numero_doc');
 
         $validator
-            ->scalar('local_trabalho')
-            ->maxLength('local_trabalho', 255)
-            ->allowEmpty('local_trabalho');
+        ->scalar('local_trabalho')
+        ->maxLength('local_trabalho', 255)
+        ->allowEmpty('local_trabalho');
 
         $validator
-            ->scalar('foto')
-            ->maxLength('foto', 255)
-            ->allowEmpty('foto');
+        ->scalar('foto')
+        ->maxLength('foto', 255)
+        ->allowEmpty('foto');
 
         $validator
-            ->scalar('comentarios')
-            ->allowEmpty('comentarios');
+        ->scalar('comentarios')
+        ->allowEmpty('comentarios');
 
         return $validator;
     }
@@ -140,4 +140,5 @@ class EstudantesTable extends Table
 
         return $rules;
     }
+}
 }

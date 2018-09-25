@@ -30,11 +30,11 @@
             <thead>
               <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('name') ?></th>
+                <th><?= $this->Paginator->sort('nome') ?></th>
                 <th><?= $this->Paginator->sort('apelido') ?></th>
                 <th><?= $this->Paginator->sort('data_nascimento') ?></th>
                 <th><?= $this->Paginator->sort('genero') ?></th>
-                <th><?= $this->Paginator->sort('nome_pai') ?></th>
+                <th><?= $this->Paginator->sort('nome do pai') ?></th>
                 <th><?= $this->Paginator->sort('nome_mae') ?></th>
                 <th><?= __('Acções') ?></th>
               </tr>

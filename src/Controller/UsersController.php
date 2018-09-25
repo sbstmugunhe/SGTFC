@@ -20,7 +20,7 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
         
-        //$this->Auth->allow('edit');
+        $this->Auth->allow('edit');
         
     }
    

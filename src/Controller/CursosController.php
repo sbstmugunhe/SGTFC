@@ -50,7 +50,7 @@ class CursosController extends AppController
     {
         $curso = $this->Cursos->newEntity();
         if ($this->request->is('post')) {
-            $curso = $this->Cursos->patchEntity($curso, $this->request->data);
+                            $curso = $this->Cursos->patchEntity($curso, $this->request->data);
             if ($this->Cursos->save($curso)) {
                 $this->Flash->success(__('O {0} salvo com sucesso.', 'Curso'));
                 return $this->redirect(['action' => 'index']);

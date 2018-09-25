@@ -28,21 +28,21 @@ use Cake\Event\Event;
 
 use Cake\Database\Type;
 // Habilita o parseamento de datas localizadas
-Type::build('date')
+/*Type::build('date')
 ->useLocaleParser()
-->setLocaleFormat('dd/MM/yyyy');
+->setLocaleFormat('mm/dd/yyyy');
 Type::build('datetime')
 ->useLocaleParser()
-->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
+->setLocaleFormat('mm/dd/yyyy HH:mm:ss');
 Type::build('timestamp')
 ->useLocaleParser()
-->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
+->setLocaleFormat('mm/dd/yyyy HH:mm:ss');
 
 // Habilita o parseamento de decimal localizaddos
 Type::build('decimal')
 ->useLocaleParser();
 Type::build('float')
-->useLocaleParser();
+->useLocaleParser();*/
 class AppController extends Controller
 {
     /**

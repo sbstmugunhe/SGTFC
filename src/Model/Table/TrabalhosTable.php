@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Trabalhos Model
  *
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\PropostasTable|\Cake\ORM\Association\BelongsTo $Propostas
  * @property \App\Model\Table\ActividadesTable|\Cake\ORM\Association\HasMany $Actividades
  *
@@ -42,6 +43,10 @@ class TrabalhosTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('Propostas', [
             'foreignKey' => 'proposta_id',
             'joinType' => 'INNER'
@@ -79,7 +84,7 @@ class TrabalhosTable extends Table
             ->allowEmpty('especificos');
 
         $validator
-            ->scalar('dataentrega')
+            ->date('dataentrega')
             ->allowEmpty('dataentrega');
 
         $validator
@@ -102,6 +107,7 @@ class TrabalhosTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['proposta_id'], 'Propostas'));
 
         return $rules;

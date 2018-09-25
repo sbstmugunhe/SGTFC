@@ -30,6 +30,7 @@
             <thead>
               <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('user_id') ?></th>
                 <th><?= $this->Paginator->sort('proposta_id') ?></th>
                 <th><?= $this->Paginator->sort('estudocaso') ?></th>
                 <th><?= $this->Paginator->sort('geral') ?></th>
@@ -41,6 +42,7 @@
             <?php foreach ($trabalhos as $trabalho): ?>
               <tr>
                 <td><?= $this->Number->format($trabalho->id) ?></td>
+                <td><?= $trabalho->has('user') ? $this->Html->link($trabalho->user->id, ['controller' => 'Users', 'action' => 'view', $trabalho->user->id]) : '' ?></td>
                 <td><?= $trabalho->has('proposta') ? $this->Html->link($trabalho->proposta->name, ['controller' => 'Propostas', 'action' => 'view', $trabalho->proposta->id]) : '' ?></td>
                 <td><?= h($trabalho->estudocaso) ?></td>
                 <td><?= h($trabalho->geral) ?></td>

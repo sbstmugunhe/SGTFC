@@ -58,7 +58,7 @@ class EstudantesFixture extends TestFixture
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'apelido' => 'Lorem ipsum dolor sit amet',
-                'data_nascimento' => '2018-07-14',
+                'data_nascimento' => '2018-08-09',
                 'genero' => 'Lorem ipsum dolor sit amet',
                 'nome_pai' => 'Lorem ipsum dolor sit amet',
                 'nome_mae' => 'Lorem ipsum dolor sit amet',

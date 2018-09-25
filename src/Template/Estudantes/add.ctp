@@ -18,7 +18,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title"><?= __('Form') ?></h3>
+          <h3 class="box-title"><?= __('Formulário') ?></h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -27,7 +27,7 @@
           <?php
             echo $this->Form->input('name');
             echo $this->Form->input('apelido');
-            echo $this->Form->control('data_nascimento', ['empty' => true, 'default' => '', 'class' => 'datepicker form-control', 'minYear' => date('Y') - 70, 'maxYear' => date('Y') - 18, 'type' => 'text']);
+            echo $this->Form->input('data_nascimento', ['empty' => true, 'default' => '', 'class' => 'datepicker form-control', 'type' => 'text']);
             echo $this->Form->input('genero');
             echo $this->Form->input('nome_pai');
             echo $this->Form->input('nome_mae');
@@ -70,10 +70,10 @@ $this->Html->script([
   $(function () {
     //Datemask mm/dd/yyyy
     $(".datepicker")
-        .inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"})
+        .inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"})
         .datepicker({
             language:'pt-BR',
-            format: 'dd/mm/yyyy'
+            format: 'yyyy/mm/dd'
         });
   });
 </script>

@@ -21,7 +21,7 @@ class TrabalhosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users', 'Propostas']
+            'contain' => ['Propostas']
         ];
         $trabalhos = $this->paginate($this->Trabalhos);
 
@@ -38,7 +38,7 @@ class TrabalhosController extends AppController
     public function view($id = null)
     {
         $trabalho = $this->Trabalhos->get($id, [
-            'contain' => ['Users', 'Propostas', 'Actividades']
+            'contain' => ['Propostas', 'Actividades']
         ]);
 
         $this->set('trabalho', $trabalho);
@@ -61,9 +61,8 @@ class TrabalhosController extends AppController
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Trabalho'));
             }
         }
-        $users = $this->Trabalhos->Users->find('list', ['limit' => 200]);
         $propostas = $this->Trabalhos->Propostas->find('list', ['limit' => 200]);
-        $this->set(compact('trabalho', 'users', 'propostas'));
+        $this->set(compact('trabalho', 'propostas'));
         $this->set('_serialize', ['trabalho']);
     }
 
@@ -88,9 +87,8 @@ class TrabalhosController extends AppController
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Trabalho'));
             }
         }
-        $users = $this->Trabalhos->Users->find('list', ['limit' => 200]);
         $propostas = $this->Trabalhos->Propostas->find('list', ['limit' => 200]);
-        $this->set(compact('trabalho', 'users', 'propostas'));
+        $this->set(compact('trabalho', 'propostas'));
         $this->set('_serialize', ['trabalho']);
     }
 

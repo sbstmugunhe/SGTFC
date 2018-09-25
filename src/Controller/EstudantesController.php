@@ -55,10 +55,10 @@ class EstudantesController extends AppController
         if ($this->request->is('post')) {
             $estudante = $this->Estudantes->patchEntity($estudante, $this->request->data);
             if ($this->Estudantes->save($estudante)) {
-                $this->Flash->success(__('The {0} has been saved.', 'Estudante'));
+                $this->Flash->success(__('O {0} salvo com sucesso.', 'Estudante'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Estudante'));
+                $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Estudante'));
             }
         }
         $occupations = $this->Estudantes->Occupations->find('list', ['limit' => 200]);
@@ -81,10 +81,10 @@ class EstudantesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $estudante = $this->Estudantes->patchEntity($estudante, $this->request->data);
             if ($this->Estudantes->save($estudante)) {
-                $this->Flash->success(__('The {0} has been saved.', 'Estudante'));
+                $this->Flash->success(__('O {0} salvo com sucesso.', 'Estudante'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Estudante'));
+                $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Estudante'));
             }
         }
         $occupations = $this->Estudantes->Occupations->find('list', ['limit' => 200]);
@@ -104,9 +104,9 @@ class EstudantesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $estudante = $this->Estudantes->get($id);
         if ($this->Estudantes->delete($estudante)) {
-            $this->Flash->success(__('The {0} has been deleted.', 'Estudante'));
+            $this->Flash->success(__('O {0} foi eleiminado sucesso.', 'Estudante'));
         } else {
-            $this->Flash->error(__('The {0} could not be deleted. Please, try again.', 'Estudante'));
+            $this->Flash->error(__('O {0} não foi eliminado. Tente novamente.', 'Estudante'));
         }
         return $this->redirect(['action' => 'index']);
     }

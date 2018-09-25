@@ -12,10 +12,10 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title"><?= __('List of') ?> Estudantes</h3>
+          <h3 class="box-title"><?= __('Todos Registos') ?> </h3>
           <div class="box-tools">
             <form action="<?php echo $this->Url->build(); ?>" method="POST">
-              <div class="input-group input-group-sm"  style="width: 180px;">
+              <div class="input-group input-group-sm"  style="width: 250px;">
                 <input type="text" name="search" class="form-control" placeholder="<?= __('Pesquisar aqui...') ?>">
                 <span class="input-group-btn">
                 <button class="btn btn-info btn-flat" type="submit"><?= __('Buscar') ?></button>
@@ -36,7 +36,7 @@
                 <th><?= $this->Paginator->sort('genero') ?></th>
                 <th><?= $this->Paginator->sort('nome_pai') ?></th>
                 <th><?= $this->Paginator->sort('nome_mae') ?></th>
-                <th><?= __('Actions') ?></th>
+                <th><?= __('Acções') ?></th>
               </tr>
             </thead>
             <tbody>

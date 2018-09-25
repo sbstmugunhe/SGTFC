@@ -23,7 +23,7 @@
                 <dl class="dl-horizontal">
                                                                                                         <dt><?= __('Proposta') ?></dt>
                                 <dd>
-                                    <?= $trabalho->has('proposta') ? $trabalho->proposta->name : '' ?>
+                <?= $trabalho->has('proposta') ? $trabalho->proposta->name : '' ?>
                                 </dd>
                                                                                                                         <dt><?= __('Estudocaso') ?></dt>
                                         <dd>

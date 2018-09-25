@@ -25,11 +25,12 @@
         <?= $this->Form->create($trabalho, array('role' => 'form')) ?>
           <div class="box-body">
           <?php
+            echo $this->Form->input('user_id', ['options' => $users]);
             echo $this->Form->input('proposta_id', ['options' => $propostas]);
             echo $this->Form->input('estudocaso');
             echo $this->Form->input('geral');
             echo $this->Form->input('especificos');
-            echo $this->Form->input('dataentrega');
+            echo $this->Form->input('dataentrega', ['empty' => true, 'default' => '', 'class' => 'datepicker form-control', 'type' => 'text']);
             echo $this->Form->input('estrutura');
             echo $this->Form->input('obras');
           ?>
@@ -44,3 +45,31 @@
   </div>
 </section>
 
+        <?php
+$this->Html->css([
+    'AdminLTE./plugins/datepicker/datepicker3',
+  ],
+  ['block' => 'css']);
+
+$this->Html->script([
+  'AdminLTE./plugins/input-mask/jquery.inputmask',
+  'AdminLTE./plugins/input-mask/jquery.inputmask.date.extensions',
+  'AdminLTE./plugins/datepicker/bootstrap-datepicker',
+  'AdminLTE./plugins/datepicker/locales/bootstrap-datepicker.pt-BR',
+],
+['block' => 'script']);
+?>
+<?php $this->start('scriptBottom'); ?>
+<script>
+  $(function () {
+    //Datemask mm/dd/yyyy
+    $(".datepicker")
+        .inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"})
+        .datepicker({
+            language:'pt-BR',
+            format: 'yyyy/mm/dd'
+        });
+  });
+</script>
+<?php $this->end(); ?>
+        

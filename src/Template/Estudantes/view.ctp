@@ -16,7 +16,7 @@
         <div class="box box-solid">
             <div class="box-header with-border">
                 <i class="fa fa-info"></i>
-                <h3 class="box-title"><?php echo __('Information'); ?></h3>
+                <h3 class="box-title"><?php echo __('Informação'); ?></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

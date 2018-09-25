@@ -17,6 +17,7 @@ class TrabalhosControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.trabalhos',
+        'app.users',
         'app.propostas',
         'app.actividades'
     ];

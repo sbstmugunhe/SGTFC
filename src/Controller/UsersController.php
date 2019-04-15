@@ -15,12 +15,12 @@ class UsersController extends AppController
 {
     //$userName = $this->Auth->user('primeiro_nome');
 
-
+/*
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         
-        $this->Auth->allow('edit');
+        $this->Auth->allow('index', 'add', 'edit');
         
     }
    

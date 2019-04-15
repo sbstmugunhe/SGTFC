@@ -223,7 +223,7 @@ Plugin::load('Migrations');
 
 Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
 Configure::write('Theme', [
-    'title' => 'DMI | Sistema de Gestão de Monografias.',
+    'title' => 'DMI | Aplicação de Monotoria e Avaliação da Asistencia Médica.',
     'logo' => [
         'mini' => '<b>DMI</b>',
         'large' => '<b>UEM</b> - DMI'
